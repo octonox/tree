@@ -14,6 +14,9 @@ public:
     BasicTree(T const& first_val); //Constructeur avec première valeur
     virtual ~BasicTree(); //Le destructeur est virtuel car le BasicTree pourrat être dérivé pour faire un binary tree
 
+    size_t size(); //Renvoie le nombre de noeud de l'arbre
+    size_t size_palier(); //Renvoie le nombre de palier de l'arbre
+
     Node<T> operator[](BasicTree<T> const& tr);
 
 protected:
