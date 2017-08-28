@@ -38,6 +38,10 @@ public:
         std::cout << "Node created" << std::endl;
     }//Va créer un noeud enfant
 
+    std::vector<std::unique_ptr<Node<T>>>& children()
+    {
+        return m_children;
+    }//Retourne une référence(****) sur le tableau de pointeur sur les noeuds enfants (utile pour parcourir les noeuds)
 
 
 private:
@@ -73,10 +77,4 @@ car en recopiant l'arbre plusieurs pointeur se seraient partagé une même resso
 celui de l'autre le serait aussi, ce qui est impossible*/
 
 /*:***Pour ajouter un noeud il faudra bien faire un push_back(Node())*/
-
-//A IMPLEMENTER
-/*operateur de flux << (pour afficher la valeur d'un noeud)*/
-/*operateur de flux >> (pour affecter un valeur venue de cin (par exemple) a un noeud)*/
-/*un moyen d'acceder a un noeud enfant : fonction récursive (?) pour parcourir les différents paliers*/
-
-/*Après c'est la classe BasicTree qui va prendre le relais pour fournir les operateurs [], =, ==, <, >, <=, >=*/
+/*:****Il faut absolument récupérer la référence sur le tableau dans une référence car les unique_ptr ne sont pas copiables!!!*/
