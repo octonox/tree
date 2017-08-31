@@ -32,15 +32,15 @@ public:
         for(auto& ref: m_first_nodes)
         {
             ++i;
-            i += parcourir(ref);
+            i += parcourir_for_size(ref);
         }
         return i;
     }//Renvoie le nombre de noeud de l'arbre
 
-    std::size_t size_palier()
+    std::vector<std::unique_ptr<Node<T>>>& child()
     {
-        return std::size_t(0);
-    }//Renvoie le nombre de palier de l'arbre
+        return m_first_nodes;
+    }
 
     Node<T> operator[](BasicTree<T> const& tr)
     {
@@ -48,13 +48,13 @@ public:
     }
 
 protected:
-    std::size_t parcourir(std::unique_ptr<Node<T>>& ptr)
+    std::size_t parcourir_for_size(std::unique_ptr<Node<T>>& ptr)
     {
         std::size_t i { 0 };
         for(auto& ref: ptr->children())
         {
             ++i;
-            i += parcourir(ref);
+            i += parcourir_for_size(ref);
         }
         return i;
     }
